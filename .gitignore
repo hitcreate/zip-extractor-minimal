@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Local configuration
+local.properties
+*.iml
+.idea/
+
+# Keystore files (never commit)
+*.jks
+*.keystore
+# ...and the passwords that unlock them. *.jks alone is NOT enough: the
+# keystore.properties sitting next to it carries storePassword/keyPassword and
+# would be picked up by a plain `git add -A`. Losing this file means losing the
+# ability to ship an update to an already-installed app.
+keystore/
+*.idsig
+
+# Misc
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+.kotlin/
+.directory

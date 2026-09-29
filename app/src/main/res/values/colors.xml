@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="discord_blurple">#FF5865F2</color>
+    <color name="discord_bg_chat">#FF313338</color>
+    <color name="discord_bg_deep">#FF1E1F22</color>
+</resources>
