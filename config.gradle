@@ -1,0 +1,19 @@
+// F-Droid build recipe for Clean Zip.
+//
+// F-Droid runs its own Gradle invocation against this repo. The Android Gradle
+// Plugin version (8.5.2) is declared in the root build.gradle.kts plugins block,
+// which fdroid-gradle reads, so no extra classpath pinning is needed here.
+//
+// Docs: https://fdroid.org/docs/Build_Metadata/
+
+applicationId = "com.minimal.zipextractor"
+
+// versionName -> versionCode. F-Droid keys releases and changelogs off
+// versionCode, so a new release means adding a line here, not editing an old one.
+versions = ["1.2": "3"]
+versionCodes = ["1.2": "3"]
+
+// This is a minified, resource-shrunk release build. F-Droid must build the
+// `release` variant, not `debug` - the debug variant is unminified and would
+// not represent what is actually shipped.
+buildTypes = ["release"]

@@ -1,0 +1,8 @@
+Adds CPIO, AR/.deb, LZMA, Z and Brotli readers, and tar.z.
+
+Extraction is now single-pass and streaming across all formats, so large archives
+no longer need to be buffered in memory, and cancellation takes effect between
+entries.
+
+Also fixes non-UTF-8 (CP437) filename decoding for legacy ZIPs whose names were
+written before the UTF-8 flag existed.

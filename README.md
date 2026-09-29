@@ -72,5 +72,26 @@ Update: drop the new APK there and re-run `~/bin/verify-delivery` on the APK URL
 ## Permissions
 - None at install time. Everything goes through the modern file picker (SAF).
 
+## F-Droid
+
+Free, ad-free and fully on-device, so this qualifies for F-Droid (no fee, no identity
+check, no annual target-SDK tax the way Play Store has). Build recipe is `config.gradle`;
+store listing is `fastlane/metadata/android/en-US/`. F-Droid builds the minified `release`
+variant — the debug variant is unminified and does not represent what ships.
+
+`fdroidserver` is not installed on this box, so the F-Droid build itself is **unverified
+by execution**. To check it, the maintainer runs:
+
+```bash
+fdroid build --config=config.gradle   # must produce a signed release APK, versionCode 3
+fdroid update --create-metadata       # regenerates fastlane metadata from the built APK
+```
+
+A new release means bumping `versions`/`versionCodes` in `config.gradle` and adding
+`fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`.
+
 ## License
-Public domain / MIT — do whatever you want with it.
+MIT — see [LICENSE](LICENSE). Originally written as "public domain / MIT"; settled on
+MIT because F-Droid requires a single recognised FOSS identifier, and MIT is unambiguous
+everywhere. If you want true public domain instead, replacing the `LICENSE` file with a
+CC0-1.0 notice is the only change needed.

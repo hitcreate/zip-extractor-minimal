@@ -1,0 +1,40 @@
+A tiny archive extractor that does one job and stays out of your way.
+
+No ads. No analytics. No trackers. No accounts. Nothing is ever uploaded - extraction happens entirely on your device, and the app requests no permissions at all.
+
+WHAT IT READS
+
+The format is detected from the file's magic bytes rather than its extension, so a mislabelled .zip that is really a 7z still opens.
+
+  ZIP            plain, ZipCrypto, WinZip AES, split volumes
+  7z
+  RAR / RAR5     including password-protected
+  TAR            plain, .tar.gz, .tar.bz2, .tar.xz, .tar.z
+  Single-file    .gz, .bz2, .xz, .lzma, .z, .br
+  CPIO
+  AR / .deb
+
+A password field covers encrypted ZIP, 7z and RAR.
+
+NOT SUPPORTED
+
+Multi-volume sets (.part1.rar, .7z.001), zstd (.zst / .tar.zst), and PPMd-compressed 7z.
+
+WHY NO PERMISSIONS
+
+The app reads files through the system file picker, so it never needs access to your
+storage. It is granted a single file, for a single extraction, and only when you
+choose it. There is nothing to revoke afterwards.
+
+EXTRACTION SAFETY
+
+Entry paths are checked before anything is written, so a crafted archive cannot
+write outside the folder you picked. This is a zip-slip guard, and it is on for
+every format, not just ZIP.
+
+SIZE
+
+Around 1.8 MB. Built with Kotlin and Jetpack Compose.
+
+Source: https://github.com/hitcreate/zip-extractor-minimal
+Licence: MIT
